@@ -2,7 +2,7 @@
   <Box title="30天流量峰值">
     <template v-slot:main>
       <div class="main">
-        <div ref="chart" class="w-100% h-200px pl-10px pr-10px"></div>
+        <div ref="chart" class="w-100% h-100% pl-10px pr-10px"></div>
       </div>
     </template>
   </Box>
@@ -37,8 +37,8 @@ onMounted(() => {
       itemStyle: {
         color: '#44BEFF' // 设置图例标记的颜色
       },
-      top: '0%',
-      right: '0%',
+      top: -6,
+      right: 0,
       orient: 'horizontal',
       textStyle: {
         color: '#5D87D5'
@@ -46,10 +46,10 @@ onMounted(() => {
       data: ['流量']
     },
     grid: {
-      top: '15%',
-      bottom: '0%',
-      left: '0%',
-      right: '0%',
+      top: 16,
+      bottom: 0,
+      left: 0,
+      right: 0,
       containLabel: true
     },
     xAxis: {
@@ -129,6 +129,8 @@ onMounted(() => {
 </script>
 <style lang="scss" scoped>
 .main {
+  height: calc(100% - 40px);
+  width: 100%;
   position: relative;
   display: flex;
   align-items: center;

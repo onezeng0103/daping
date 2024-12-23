@@ -3,11 +3,11 @@
     <template v-slot:main>
       <div class="main">
         <div class="main_title">
-          <img class="w-64px h-64px" src="@/assets/images/order.png" />
+          <img class="w-54px h-54px" src="@/assets/images/order.png" />
           <i>累计订单</i>
           <span>2,115.00 GB</span>
         </div>
-        <div ref="chart" class="w-100% h-250px"></div>
+        <div ref="chart" class="chart"></div>
       </div>
     </template>
   </Box>
@@ -94,10 +94,9 @@ onMounted(() => {
     },
     grid: {
       top: 30,
-      x: 50,
-      y: 20,
-      x2: 5,
-      y2: 50,
+      bottom: 30,
+      left: 45,
+      right: 0,
       borderWidth: 1
     },
     series: [
@@ -138,26 +137,32 @@ onMounted(() => {
 .main {
   position: relative;
   padding: 0 12px;
+  height: calc(100% - 50px);
   &_title {
-    background: url('../assets/images/order-bg.png') 100% 100% no-repeat;
-    width: 443px;
-    height: 64px;
-    margin-top: 20px;
+    background-image: url('../assets/images/order-bg.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 54px;
+    margin: 10px 0;
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
     i {
       color: #e0ebff;
       font-size: 14px;
-      margin-left: 27px;
+      margin-left: 17px;
       font-style: normal;
     }
     span {
       font-family: YouSheBiaoTiHei-Bold;
       font-size: 28px;
       color: #fff;
-      margin-left: 100px;
+      margin-left: 80px;
     }
+  }
+  .chart {
+    width: 100%;
+    height: calc(100% - 64px);
   }
 }
 </style>

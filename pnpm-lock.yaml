@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      autofit.js:
+        specifier: ^3.2.2
+        version: 3.2.2
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.49)
@@ -1050,6 +1053,9 @@ packages:
 
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
+
+  autofit.js@3.2.2:
+    resolution: {integrity: sha512-oo6e5GGhYKrpIgn6/KHzbtvWKm+dk6925wJoz8XGhKw2tlzc+dF9TBaJL/bOXnmpeRR82oxWLBOcOi2WDa6DIw==}
 
   autoprefixer@10.4.20:
     resolution: {integrity: sha512-XY25y5xSv/wEoqzDyXXME4AFfkZI0P23z6Fs3YgymDnKJkCGOnkL0iTxCa85UTqaSgfcqyf3UA6+c7wUvx/16g==}
@@ -3455,6 +3461,8 @@ snapshots:
       picomatch: 2.3.1
 
   argparse@2.0.1: {}
+
+  autofit.js@3.2.2: {}
 
   autoprefixer@10.4.20(postcss@8.4.49):
     dependencies:

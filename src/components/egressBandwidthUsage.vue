@@ -6,7 +6,7 @@
           <p>35,343.00</p>
           <p>已用带宽(GB)</p>
         </div>
-        <div ref="chart" class="w-150px h-150px"></div>
+        <div ref="chart" class="w-150px h-100%"></div>
         <div class="right">
           <p>10,671.00</p>
           <p>剩余带宽(GB)</p>
@@ -126,7 +126,8 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 42px 0 19px 0;
+  padding: 40px 0 20px 0;
+  height: calc(100% - 40px);
   .left {
     position: absolute;
     top: 46px;

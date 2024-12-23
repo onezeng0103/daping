@@ -1,5 +1,5 @@
 <template>
-  <div class="title pt-10px flex">
+  <div class="title">
     <div class="left">
       <img src="@/assets/images/logo.png" alt="" />
       <div class="left_text">深智城集团</div>
@@ -13,11 +13,16 @@
   position: relative;
   width: 100%;
   height: 80px;
-  background: url('../assets/images/headline.png') 100% 100%;
+  display: flex;
+  background-image: url('../assets/images/headline.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   overflow: hidden;
   .left {
     display: flex;
     align-content: center;
+    margin-top: 10px;
+    margin-left: 14px;
     img {
       width: 43.2px;
       height: 30px;
@@ -43,6 +48,8 @@
     color: #c4d9ff;
     font-size: 16px;
     margin-left: auto;
+    margin-top: 10px;
+    margin-right: 14px;
   }
 }
 </style>

@@ -2,7 +2,7 @@
   <Box title="30天流量趋势">
     <template v-slot:main>
       <div class="main">
-        <div ref="chart" class="w-100% h-240px pl-10px pr-10px"></div>
+        <div ref="chart" class="w-100% h-100%"></div>
       </div>
     </template>
   </Box>
@@ -32,8 +32,8 @@ onMounted(() => {
       icon: 'circle',
       itemWidth: 10,
       itemHeight: 10,
-      top: '0%',
-      right: '0%',
+      top: -6,
+      right: 0,
       itemGap: 25,
       textStyle: {
         color: '#5D87D5'
@@ -41,10 +41,10 @@ onMounted(() => {
       data: ['流入', '流出']
     },
     grid: {
-      top: '15%',
-      bottom: '0%',
-      left: '0%',
-      right: '0%',
+      top: 15,
+      bottom: 0,
+      left: 10,
+      right: 10,
       containLabel: true
     },
     xAxis: {
@@ -171,6 +171,8 @@ onMounted(() => {
 </script>
 <style lang="scss" scoped>
 .main {
+  width: 100%;
+  height: calc(100% - 40px);
   position: relative;
   display: flex;
   align-items: center;
