@@ -1,34 +1,32 @@
 <template>
-  <Box title="出口带宽使用率">
-    <template v-slot:main>
-      <div class="main">
-        <img src="@/assets/images/line.png" />
-        <table>
-          <thead>
-            <tr>
-              <th>序号</th>
-              <th>单位名称</th>
-              <th>告警名称</th>
-              <th>时长</th>
-              <th>日期</th>
-            </tr>
-          </thead>
-          <tbody ref="scrollContent">
-            <tr v-for="row in visibleData" :key="row.序号">
-              <td>{{ row.序号 }}</td>
-              <td>{{ row.单位名称 }}</td>
-              <td>{{ row.告警名称 }}</td>
-              <td>{{ row.时长 }}</td>
-              <td>{{ row.日期 }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </template>
-  </Box>
+  <div class="box">
+    <div class="title">出口带宽使用率</div>
+    <div class="main">
+      <img src="@/assets/images/line.png" />
+      <table>
+        <thead>
+          <tr>
+            <th>序号</th>
+            <th>单位名称</th>
+            <th>告警名称</th>
+            <th>时长</th>
+            <th>日期</th>
+          </tr>
+        </thead>
+        <tbody ref="scrollContent">
+          <tr v-for="row in visibleData" :key="row.序号">
+            <td>{{ row.序号 }}</td>
+            <td>{{ row.单位名称 }}</td>
+            <td>{{ row.告警名称 }}</td>
+            <td>{{ row.时长 }}</td>
+            <td>{{ row.日期 }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </template>
 <script setup lang="ts">
-import Box from './box.vue'
 const tableData = ref([
   {
     序号: 1,
@@ -64,41 +62,6 @@ const tableData = ref([
     告警名称: '告警5',
     时长: '3.5',
     日期: '2024-12-09'
-  },
-  {
-    序号: 6,
-    单位名称: '单位6',
-    告警名称: '告警6',
-    时长: '2.0',
-    日期: '2024-12-08'
-  },
-  {
-    序号: 7,
-    单位名称: '单位7',
-    告警名称: '告警7',
-    时长: '1.8',
-    日期: '2024-12-07'
-  },
-  {
-    序号: 8,
-    单位名称: '单位8',
-    告警名称: '告警8',
-    时长: '3.2',
-    日期: '2024-12-06'
-  },
-  {
-    序号: 9,
-    单位名称: '单位9',
-    告警名称: '告警9',
-    时长: '4.0',
-    日期: '2024-12-05'
-  },
-  {
-    序号: 10,
-    单位名称: '单位10',
-    告警名称: '告警10',
-    时长: '1.4',
-    日期: '2024-12-04'
   }
 ])
 const scrollContent = useTemplateRef('scrollContent') as Ref<HTMLElement>
@@ -117,49 +80,81 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
-.main {
-  position: relative;
-  height: 270px;
-  overflow: hidden;
-  padding: 23px 10px 19px 10px;
-  font-size: 14px;
-  img {
-    position: absolute;
-    top: 60px;
-  }
-  table {
-    cursor: pointer;
+.box {
+  width: 100%;
+  background-image: url('../assets/images/box.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100%;
+
+  .title {
     width: 100%;
-    border-collapse: collapse;
-    border-width: 0px;
+    height: 30px;
+    padding-left: 33px;
+    line-height: 30px;
+    font-size: 20px;
+    color: #fff;
+    font-family: 'YouSheBiaoTiHei-Bold';
+    background-image: url('../assets/images/box-title.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
   }
-  thead {
-    color: #5d87d5;
-    padding-bottom: 20px;
-    th {
-      padding: 12px;
+
+  .main {
+    position: relative;
+    height: calc(100% - 30px);
+    width: 100%;
+    font-size: 14px;
+
+    img {
+      position: absolute;
+      top: 40px;
     }
-  }
-  tbody {
-    tr {
-      &:nth-child(odd) {
-        background-color: rgba(50, 117, 241, 0.2);
-      }
-      &:hover {
-        background-color: #2a588c;
+
+    table {
+      display: block;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      border-collapse: collapse;
+      border-width: 0px;
+      box-sizing: border-box;
+    }
+
+    thead {
+      color: #5d87d5;
+      padding-bottom: 20px;
+
+      th {
+        padding: 10px;
       }
     }
-    td {
-      text-align: center;
-      padding: 12px;
-      color: #ffffff;
-      &:nth-child(1) {
-        color: #5d87d5;
+
+    tbody {
+      tr {
+        &:nth-child(odd) {
+          background-color: rgba(50, 117, 241, 0.2);
+        }
+
+        &:hover {
+          background-color: #2a588c;
+        }
+      }
+
+      td {
+        text-align: center;
+        padding: 10px;
+        color: #ffffff;
+
+        &:nth-child(1) {
+          color: #5d87d5;
+        }
       }
     }
-  }
-  tbody tr:nth-child(odd) {
-    background-color: #1f416e;
+
+    tbody tr:nth-child(odd) {
+      background-color: #1f416e;
+    }
   }
 }
 </style>

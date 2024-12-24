@@ -16,24 +16,26 @@
   display: flex;
   background-image: url('../assets/images/headline.png');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   overflow: hidden;
+
   .left {
     display: flex;
-    align-content: center;
-    margin-top: 10px;
+    align-items: center;
     margin-left: 14px;
+
     img {
       width: 43.2px;
       height: 30px;
-      margin-top: 4px;
     }
+
     &_text {
       font-size: 30px;
       color: #fff;
-      margin-left: 10px;
+      margin-left: 9px;
     }
   }
+
   .text {
     position: absolute;
     top: 41%;
@@ -44,12 +46,13 @@
     color: #fff;
     font-family: YouSheBiaoTiHei-Bold;
   }
+
   .right {
     color: #c4d9ff;
     font-size: 16px;
     margin-left: auto;
-    margin-top: 10px;
-    margin-right: 14px;
+    margin-top: 21px;
+    margin-right: 16px;
   }
 }
 </style>

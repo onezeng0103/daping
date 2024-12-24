@@ -1,22 +1,20 @@
 <template>
-  <Box title="出口带宽使用率">
-    <template v-slot:main>
-      <div class="main">
-        <div class="left">
-          <p>35,343.00</p>
-          <p>已用带宽(GB)</p>
-        </div>
-        <div ref="chart" class="w-150px h-100%"></div>
-        <div class="right">
-          <p>10,671.00</p>
-          <p>剩余带宽(GB)</p>
-        </div>
+  <div class="box">
+    <div class="title">出口带宽使用率</div>
+    <div class="main">
+      <div class="left">
+        <p>35,343.00</p>
+        <p>已用带宽(GB)</p>
       </div>
-    </template>
-  </Box>
+      <div ref="chart" class="chart"></div>
+      <div class="right">
+        <p>10,671.00</p>
+        <p>剩余带宽(GB)</p>
+      </div>
+    </div>
+  </div>
 </template>
 <script setup lang="ts">
-import Box from './box.vue'
 import * as eCharts from 'echarts'
 const chartRef = useTemplateRef<HTMLInputElement>('chart')
 onMounted(() => {
@@ -26,7 +24,7 @@ onMounted(() => {
       text: '65,343',
       subtext: '总接入',
       left: 'center',
-      top: '30%',
+      top: 'center',
       textStyle: {
         color: '#ffffff',
         fontSize: 24,
@@ -121,59 +119,96 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
-.main {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 0 20px 0;
-  height: calc(100% - 40px);
-  .left {
-    position: absolute;
-    top: 46px;
-    left: 12px;
-    width: 167.43px;
-    height: 139px;
-    background: url('../assets/images/annularLeft.png') 100% 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-right: 47px;
-    & p:nth-child(1) {
-      color: #3275f1;
-      font-family: Source Han Sans CN-Bold;
-      font-size: 22px;
-    }
-    & p:nth-child(2) {
-      margin-top: 9px;
-      color: #798395;
-      font-family: Source-Han-Sans-Regular;
-      font-size: 14px;
-    }
+.box {
+  width: 100%;
+  background-image: url('../assets/images/box.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100%;
+
+  .title {
+    width: 100%;
+    height: 30px;
+    padding-left: 33px;
+    line-height: 30px;
+    font-size: 20px;
+    color: #fff;
+    font-family: 'YouSheBiaoTiHei-Bold';
+    background-image: url('../assets/images/box-title.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
   }
-  .right {
-    position: absolute;
-    top: 46px;
-    right: 12px;
-    width: 167.43px;
-    height: 139px;
-    background: url('../assets/images/annularRight.png') 100% 100%;
+
+  .main {
+    position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-left: 47px;
-    & p:nth-child(1) {
-      color: #d1a134;
-      font-family: Source Han Sans CN-Bold;
-      font-size: 22px;
+    padding: 0px 12px;
+    height: calc(100% - 30px);
+    width: 100%;
+
+    .left {
+      position: absolute;
+      left: 20px;
+      width: 167.43px;
+      height: 139px;
+      background-image: url('../assets/images/annularLeft.png');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-right: 20px;
+
+      & p:nth-child(1) {
+        color: #3275f1;
+        font-family: Source Han Sans CN-Bold;
+        font-size: 22px;
+      }
+
+      & p:nth-child(2) {
+        margin-top: 9px;
+        color: #798395;
+        font-family: Source-Han-Sans-Regular;
+        font-size: 14px;
+      }
     }
-    & p:nth-child(2) {
-      margin-top: 9px;
-      color: #798395;
-      font-family: Source-Han-Sans-Regular;
-      font-size: 14px;
+
+    .chart {
+      margin-top: 0px;
+      margin-left: 20px;
+      width: 140px;
+      height: 140px;
+    }
+
+    .right {
+      position: absolute;
+      right: 0px;
+      width: 167.43px;
+      height: 139px;
+      background-image: url('../assets/images/annularRight.png');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-left: 20px;
+
+      & p:nth-child(1) {
+        color: #d1a134;
+        font-family: Source Han Sans CN-Bold;
+        font-size: 22px;
+      }
+
+      & p:nth-child(2) {
+        margin-top: 9px;
+        color: #798395;
+        font-family: Source-Han-Sans-Regular;
+        font-size: 14px;
+      }
     }
   }
 }

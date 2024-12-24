@@ -11,7 +11,7 @@ import postcssPxToViewport from 'postcss-px-to-viewport-8-plugin' // 静态导�
 // https://vite.dev/config/
 export default defineConfig({
   server: {
-    port: 5174,
+    port: 5173,
     host: true,
     open: true
   },
@@ -28,7 +28,15 @@ export default defineConfig({
   ],
   css: {
     postcss: {
-      plugins: [autoprefixer()]
+      plugins: [
+        autoprefixer(),
+        postcssPxToViewport({
+          viewportWidth: 1920,
+          viewportHeight: 1080,
+          unitPrecision: 5,
+          viewportUnit: 'rem'
+        })
+      ]
     }
   },
   resolve: {

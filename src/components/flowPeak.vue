@@ -1,14 +1,12 @@
 <template>
-  <Box title="30天流量峰值">
-    <template v-slot:main>
-      <div class="main">
-        <div ref="chart" class="w-100% h-100% pl-10px pr-10px"></div>
-      </div>
-    </template>
-  </Box>
+  <div class="box">
+    <div class="title">30天流量峰值</div>
+    <div class="main">
+      <div ref="chart" class="chart"></div>
+    </div>
+  </div>
 </template>
 <script setup lang="ts">
-import Box from './box.vue'
 import * as eCharts from 'echarts'
 const chartRef = useTemplateRef<HTMLInputElement>('chart')
 onMounted(() => {
@@ -37,7 +35,7 @@ onMounted(() => {
       itemStyle: {
         color: '#44BEFF' // 设置图例标记的颜色
       },
-      top: -6,
+      top: -0,
       right: 0,
       orient: 'horizontal',
       textStyle: {
@@ -93,8 +91,8 @@ onMounted(() => {
           }
         },
         min: 0,
-        max: 1000,
-        interval: 200
+        max: 1200,
+        interval: 300
       }
     ],
     series: [
@@ -128,13 +126,35 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
-.main {
-  height: calc(100% - 40px);
+.box {
   width: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 26px 0 12px 0;
+  background-image: url('../assets/images/box.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100%;
+
+  .title {
+    width: 100%;
+    height: 30px;
+    padding-left: 33px;
+    line-height: 30px;
+    font-size: 20px;
+    color: #fff;
+    font-family: 'YouSheBiaoTiHei-Bold';
+    background-image: url('../assets/images/box-title.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .main {
+    height: calc(100% - 30px);
+    width: 100%;
+    padding: 10px 0;
+
+    .chart {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 </style>

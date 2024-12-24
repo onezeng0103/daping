@@ -1,14 +1,12 @@
 <template>
-  <Box title="30天流量趋势">
-    <template v-slot:main>
-      <div class="main">
-        <div ref="chart" class="w-100% h-100%"></div>
-      </div>
-    </template>
-  </Box>
+  <div class="box">
+    <div class="title">30天流量趋势</div>
+    <div class="main">
+      <div ref="chart" class="chart"></div>
+    </div>
+  </div>
 </template>
 <script setup lang="ts">
-import Box from './box.vue'
 import * as eCharts from 'echarts'
 const chartRef = useTemplateRef<HTMLInputElement>('chart')
 onMounted(() => {
@@ -32,7 +30,7 @@ onMounted(() => {
       icon: 'circle',
       itemWidth: 10,
       itemHeight: 10,
-      top: -6,
+      top: -2,
       right: 0,
       itemGap: 25,
       textStyle: {
@@ -89,7 +87,7 @@ onMounted(() => {
         },
         min: 0,
         max: 1500,
-        interval: 300
+        interval: 500
       }
     ],
     series: [
@@ -170,13 +168,36 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
-.main {
+.box {
   width: 100%;
-  height: calc(100% - 40px);
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 26px 0 12px 0;
+  background-image: url('../assets/images/box.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100%;
+
+  .title {
+    width: 100%;
+    height: 30px;
+    padding-left: 33px;
+    line-height: 30px;
+    font-size: 20px;
+    color: #fff;
+    font-family: 'YouSheBiaoTiHei-Bold';
+    background-image: url('../assets/images/box-title.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .main {
+    width: 100%;
+    box-sizing: border-box;
+    height: calc(100% - 30px);
+    padding: 10px 0;
+
+    .chart {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 </style>

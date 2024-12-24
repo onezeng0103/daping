@@ -1,19 +1,17 @@
 <template>
-  <Box title="订单统计">
-    <template v-slot:main>
-      <div class="main">
-        <div class="main_title">
-          <img class="w-54px h-54px" src="@/assets/images/order.png" />
-          <i>累计订单</i>
-          <span>2,115.00 GB</span>
-        </div>
-        <div ref="chart" class="chart"></div>
+  <div class="box">
+    <div class="title">订单统计</div>
+    <div class="main">
+      <div class="main_title">
+        <img src="@/assets/images/order.png" />
+        <i>累计订单</i>
+        <span>2,115.00 GB</span>
       </div>
-    </template>
-  </Box>
+      <div ref="chart" class="chart"></div>
+    </div>
+  </div>
 </template>
 <script setup lang="ts">
-import Box from './box.vue'
 import * as eCharts from 'echarts'
 const chartRef = useTemplateRef<HTMLInputElement>('chart')
 
@@ -90,7 +88,7 @@ onMounted(() => {
       },
       min: 0,
       max: 1500,
-      interval: 300
+      interval: 500
     },
     grid: {
       top: 30,
@@ -134,35 +132,64 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
-.main {
-  position: relative;
-  padding: 0 12px;
-  height: calc(100% - 50px);
-  &_title {
-    background-image: url('../assets/images/order-bg.png');
+.box {
+  width: 100%;
+  background-image: url('../assets/images/box.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100%;
+
+  .title {
+    width: 100%;
+    height: 30px;
+    padding-left: 33px;
+    line-height: 30px;
+    font-size: 20px;
+    color: #fff;
+    font-family: 'YouSheBiaoTiHei-Bold';
+    background-image: url('../assets/images/box-title.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    width: 100%;
-    height: 54px;
-    margin: 10px 0;
-    display: flex;
-    align-items: center;
-    i {
-      color: #e0ebff;
-      font-size: 14px;
-      margin-left: 17px;
-      font-style: normal;
-    }
-    span {
-      font-family: YouSheBiaoTiHei-Bold;
-      font-size: 28px;
-      color: #fff;
-      margin-left: 80px;
-    }
   }
-  .chart {
-    width: 100%;
-    height: calc(100% - 64px);
+
+  .main {
+    position: relative;
+    padding: 20px 0 0;
+    height: calc(100% - 30px);
+
+    &_title {
+      background-image: url('../assets/images/order-bg.png');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      width: 100%;
+      height: 44px;
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 44px;
+        height: 44px;
+      }
+
+      i {
+        color: #e0ebff;
+        font-size: 14px;
+        margin-left: 27px;
+        font-style: normal;
+      }
+
+      span {
+        font-family: YouSheBiaoTiHei-Bold;
+        font-size: 20px;
+        color: #fff;
+        margin-left: 100px;
+      }
+    }
+
+    .chart {
+      width: 100%;
+      height: calc(100% - 50px);
+    }
   }
 }
 </style>
